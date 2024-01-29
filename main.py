@@ -36,18 +36,12 @@ def put_product(id_item: int, product: Game):
         game = result.one()
         if  product.name != None:
             game.name = product.name
-            session.add(game)
-            session.commit()
-            session.refresh(game)
         if product.price != None:
             game.price = product.price
-            session.add(game)
-            session.commit()
-            session.refresh(game)
         if product.launch != None:
             game.launch = product.launch
-            session.add(game)
-            session.commit()
-            session.refresh(game)
+        session.add(game)
+        session.commit()
+        session.refresh(game)
         
     return 'Product has been updated'
