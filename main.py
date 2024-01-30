@@ -44,4 +44,4 @@ def put_product(id_item: int, product: Game):
         session.commit()
         session.refresh(game)
         
-    return 'Product has been updated'
+    return 'The product has been updated'
