@@ -45,3 +45,16 @@ def put_product(id_item: int, product: Game):
         session.refresh(game)
         
     return 'The product has been updated'
+
+@app.delete('/delete_product/{id_item}')
+def delete_product(id_item: int):
+    with Session(engine) as session:
+        statement = select(Game).where(Game.id == id_item)
+        result = session.exec(statement)
+        game = result.one()
+        session.delete(game)
+        session.commit()
+
+    return 'The product has been deleted'
+
+        
